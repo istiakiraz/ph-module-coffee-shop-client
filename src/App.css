@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+body{
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.rancho {
+  font-family: "Rancho", cursive;
+  
+
+}
