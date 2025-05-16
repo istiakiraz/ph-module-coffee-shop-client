@@ -2,19 +2,20 @@ import React from "react";
 import bg from "../assets/icons/11.png";
 import { Link } from "react-router";
 import { GoArrowLeft } from "react-icons/go";
+import Swal from "sweetalert2";
 const AddCoffeePage = () => {
   const handleAddCoffee = (e) => {
     e.preventDefault();
 
     // const name = e.target.name.value;
     // const supplier = e.target.supplier.value;
-    // const category = e.target.category.value;
+    // const price = e.target.price.value;
     // const chef = e.target.chef.value;
     // const taste = e.target.taste.value;
     // const details = e.target.details.value;
     // const photo = e.target.photo.value;
 
-    // const list= {name, supplier, category, chef, taste, details, photo}
+    // const list= {name, supplier, price, chef, taste, details, photo}
 
     // console.log(list);
 
@@ -29,16 +30,23 @@ const AddCoffeePage = () => {
     console.log(newCoffee);
 
     fetch("http://localhost:3000/coffees", {
-        method: "POST",
-        headers:{
-            'content-type' : "application/json"
-        },
-        body: JSON.stringify(newCoffee)
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCoffee),
     })
       .then((res) => res.json())
       .then((data) => {
-        if(data.insertedId){
-            console.log('sus');
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Added a new coffee",
+            icon: "success",
+            draggable: true,
+          });
+
+          form.reset()
+
         }
       });
   };
@@ -101,13 +109,13 @@ const AddCoffeePage = () => {
                     placeholder="Enter coffee supplier"
                   />
 
-                  <label className=" font-bold label">Category</label>
+                  <label className=" font-bold label">Price</label>
                   <input
-                    type="text"
+                    type="number"
                     required
-                    name="category"
+                    name="price"
                     className="input mb-2 w-96"
-                    placeholder="Enter coffee category"
+                    placeholder="Enter coffee price"
                   />
                 </fieldset>
               </div>
