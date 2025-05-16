@@ -1,6 +1,6 @@
 import React from 'react';      
-import navBg from '../assets/Rectangle 1.png'
-import logo from '../assets/logo1 1.png'
+import navBg from '../assets/icons/Rectangle 1.png'
+import logo from '../assets/icons/logo1 1.png'
 
 const Navbar = () => {
     return (

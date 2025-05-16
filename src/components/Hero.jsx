@@ -1,5 +1,5 @@
 import React from 'react';
-import bannerImg from '../assets/3.png'
+import bannerImg from '../assets/icons/banner.png'
 import { Link } from 'react-router';
 
 const Hero = () => {
