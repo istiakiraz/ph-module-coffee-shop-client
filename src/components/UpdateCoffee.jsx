@@ -1,51 +1,20 @@
 import React from "react";
+import { Link, useLoaderData } from "react-router";
 import bg from "../assets/icons/11.png";
-import { Link } from "react-router";
 import { GoArrowLeft } from "react-icons/go";
-import Swal from "sweetalert2";
-const AddCoffeePage = () => {
-  const handleAddCoffee = (e) => {
+
+const UpdateCoffee = () => {
+  const { name, supplier, price, chef, taste, details, photo } =
+    useLoaderData();
+
+  const handleUpdateCoffee = (e) => {
     e.preventDefault();
 
-    // const name = e.target.name.value;
-    // const supplier = e.target.supplier.value;
-    // const price = e.target.price.value;
-    // const chef = e.target.chef.value;
-    // const taste = e.target.taste.value;
-    // const details = e.target.details.value;
-    // const photo = e.target.photo.value;
-
-    // const list= {name, supplier, price, chef, taste, details, photo}
-
-    // console.log(list);
-
-    //impotent
-
     const form = e.target;
+
     const formData = new FormData(form);
-    const newCoffee = Object.fromEntries(formData.entries());
-
-
-    fetch("http://localhost:3000/coffees", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newCoffee),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Added a new coffee",
-            icon: "success",
-            draggable: true,
-          });
-
-          // form.reset()
-
-        }
-      });
+    const UpdateCoffee = Object.fromEntries(formData.entries());
+    console.log(UpdateCoffee);
   };
 
   return (
@@ -76,22 +45,17 @@ const AddCoffeePage = () => {
                   "0 0 3px #fff, 0 0 3px #fff, 0 0 3px #331A15, 0 0 3px #331A15",
               }}
             >
-              Add New Coffee
+              Update Coffee
             </h1>
-            <p className="text-center font-thin mb-8">
-              It is a long established fact that a reader will be distraceted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using Content here.
-            </p>
 
-            <form onSubmit={handleAddCoffee} className="grid grid-cols-2">
+            <form onSubmit={handleUpdateCoffee} className="grid grid-cols-2">
               <div>
                 <fieldset className="fieldset rounded-box w-xs  p-4">
                   <label className="label font-bold">Name</label>
                   <input
                     required
                     name="name"
+                    defaultValue={name}
                     type="text"
                     className="input  mb-2 w-96"
                     placeholder="Enter coffee name"
@@ -102,6 +66,7 @@ const AddCoffeePage = () => {
                     required
                     name="supplier"
                     type="text"
+                    defaultValue={supplier}
                     className="input mb-2 w-96"
                     placeholder="Enter coffee supplier"
                   />
@@ -111,6 +76,7 @@ const AddCoffeePage = () => {
                     type="number"
                     required
                     name="price"
+                    defaultValue={price}
                     className="input mb-2 w-96"
                     placeholder="Enter coffee price"
                   />
@@ -123,6 +89,7 @@ const AddCoffeePage = () => {
                     required
                     name="chef"
                     type="text"
+                    defaultValue={chef}
                     className="input mb-2 w-96"
                     placeholder="Enter coffee chef"
                   />
@@ -131,6 +98,7 @@ const AddCoffeePage = () => {
                   <input
                     required
                     name="taste"
+                    defaultValue={taste}
                     type="text"
                     className="input mb-2 w-96"
                     placeholder="Enter coffee taste"
@@ -141,6 +109,7 @@ const AddCoffeePage = () => {
                     required
                     type="text"
                     name="details"
+                    defaultValue={details}
                     className="input mb-2 w-96"
                     placeholder="Enter coffee details"
                   />
@@ -153,6 +122,7 @@ const AddCoffeePage = () => {
                     required
                     name="photo"
                     type="text"
+                    defaultValue={photo}
                     className="input mb-4 mx-auto w-[820px]"
                     placeholder="Enter photo URL"
                   />
@@ -172,4 +142,4 @@ const AddCoffeePage = () => {
   );
 };
 
-export default AddCoffeePage;
+export default UpdateCoffee;

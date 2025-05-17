@@ -54,10 +54,10 @@ const SingleCard = ({ coffee }) => {
 
       {/* Right - Buttons */}
       <div className="flex flex-col space-y-2 ml-4">
-        <button className="btn btn-sm  btn-ghost text-white bg-amber-600">
+        <Link to={`/coffee/${_id}`}><button className="btn btn-sm  btn-ghost text-white bg-amber-600">
           <FaEye />
-        </button>
-        <Link to={`coffee/${_id}`} ><button className="btn btn-sm btn-ghost text-white bg-gray-700">
+        </button></Link>
+        <Link to={`/update-coffee/${_id}`}   ><button className="btn btn-sm btn-ghost text-white bg-gray-700">
           <FaEdit />
         </button></Link>
         <button
