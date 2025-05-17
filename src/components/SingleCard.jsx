@@ -1,5 +1,6 @@
 import React from "react";
 import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
+import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const SingleCard = ({ coffee }) => {
@@ -56,9 +57,9 @@ const SingleCard = ({ coffee }) => {
         <button className="btn btn-sm  btn-ghost text-white bg-amber-600">
           <FaEye />
         </button>
-        <button className="btn btn-sm btn-ghost text-white bg-gray-700">
+        <Link to={`coffee/${_id}`} ><button className="btn btn-sm btn-ghost text-white bg-gray-700">
           <FaEdit />
-        </button>
+        </button></Link>
         <button
           onClick={() => handleDelete(_id)}
           className="btn btn-sm btn-ghost text-white bg-red-600"
