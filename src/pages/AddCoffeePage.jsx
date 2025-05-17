@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import { GoArrowLeft } from "react-icons/go";
 import Swal from "sweetalert2";
 const AddCoffeePage = () => {
+
   const handleAddCoffee = (e) => {
     e.preventDefault();
 

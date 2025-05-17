@@ -2,9 +2,10 @@ import React from "react";
 import { Link, useLoaderData } from "react-router";
 import bg from "../assets/icons/11.png";
 import { GoArrowLeft } from "react-icons/go";
+import Swal from "sweetalert2";
 
 const UpdateCoffee = () => {
-  const { name, supplier, price, chef, taste, details, photo } =
+  const { _id ,name, supplier, price, chef, taste, details, photo } =
     useLoaderData();
 
   const handleUpdateCoffee = (e) => {
@@ -13,8 +14,26 @@ const UpdateCoffee = () => {
     const form = e.target;
 
     const formData = new FormData(form);
-    const UpdateCoffee = Object.fromEntries(formData.entries());
-    console.log(UpdateCoffee);
+    const updateCoffee = Object.fromEntries(formData.entries());
+
+    fetch(`http://localhost:3000/coffees/${_id}`,{
+        method: "PUT",
+        headers: {
+            'content-type' : 'application/json'
+        },
+        body: JSON.stringify(updateCoffee)
+    }).then(res=> res.json()).then(data =>{
+       if(data.modifiedCount){
+        Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "Your coffee update successful!!!",
+  showConfirmButton: false,
+  timer: 1500
+});
+       }
+    })
+
   };
 
   return (

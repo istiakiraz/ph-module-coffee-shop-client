@@ -3,8 +3,9 @@ import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
-const SingleCard = ({ coffee }) => {
+const SingleCard = ({ coffee, upCoffee, setUpCoffee }) => {
   const { _id, name, chef, price, photo } = coffee;
+
 
   const handleDelete = (_id) => {
     Swal.fire({
@@ -28,6 +29,12 @@ const SingleCard = ({ coffee }) => {
                 text: "Your coffee has been deleted.",
                 icon: "success",
               });
+
+                // remove the coffee card 
+
+                const remainingCoffee = upCoffee.filter(cof=> cof._id !== _id)
+                setUpCoffee(remainingCoffee);
+
             }
           });
       }
