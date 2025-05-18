@@ -26,6 +26,9 @@ const AddCoffeePage = () => {
     const formData = new FormData(form);
     const newCoffee = Object.fromEntries(formData.entries());
 
+    newCoffee.price = parseInt(newCoffee.price)
+    console.log(newCoffee);
+
 
     fetch("http://localhost:3000/coffees", {
       method: "POST",
