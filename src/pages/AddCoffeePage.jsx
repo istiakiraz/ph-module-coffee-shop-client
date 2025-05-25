@@ -67,7 +67,7 @@ const AddCoffeePage = () => {
             }}
           >
             {" "}
-            <GoArrowLeft /> Back too home
+            <GoArrowLeft /> Back to home
           </span>
         </Link>
 
