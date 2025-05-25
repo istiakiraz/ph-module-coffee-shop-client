@@ -14,7 +14,7 @@ const AddCoffeePage = () => {
     // const chef = e.target.chef.value;
     // const taste = e.target.taste.value;
     // const details = e.target.details.value;
-    // const photo = e.target.photo.value;
+    const photo = e.target.photo.value;
 
     // const list= {name, supplier, price, chef, taste, details, photo}
 
